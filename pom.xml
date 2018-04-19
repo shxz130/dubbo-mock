@@ -20,6 +20,9 @@
         <module>dumock-db-mapper</module>
         <module>dumock-run</module>
         <module>dumock-utils</module>
+        <module>dubbo-core</module>
+        <module>dumock-classloader</module>
+        <module>dumock-core</module>
     </modules>
 
 
