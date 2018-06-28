@@ -19,14 +19,10 @@
         </dependency>
         <dependency>
             <groupId>com.jettyrun.dumock</groupId>
-            <artifactId>dumock-dubbo-reference</artifactId>
+            <artifactId>dumock-proxy</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>com.jettyrun.dumock</groupId>
-            <artifactId>dumock-dubbo-service</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+
 
         <dependency>
             <groupId>com.jettyrun.dumock</groupId>
