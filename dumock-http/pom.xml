@@ -12,4 +12,13 @@
     <artifactId>dumock-http</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.jettyrun.dumock</groupId>
+            <artifactId>dumock-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
 </project>

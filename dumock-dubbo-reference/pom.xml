@@ -11,5 +11,13 @@
 
     <artifactId>dumock-dubbo-reference</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.jettyrun.dumock</groupId>
+            <artifactId>dumock-db-mapper</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

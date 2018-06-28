@@ -11,5 +11,12 @@
 
     <artifactId>dumock-classloader</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.jettyrun.dumock</groupId>
+            <artifactId>dumock-utils</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>
