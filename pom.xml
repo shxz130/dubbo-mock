@@ -11,9 +11,9 @@
 
     <modules>
         <module>dumock-utils</module>
+        <module>dumock-classloader</module>
         <module>dumock-dubbo-reference</module>
         <module>dumock-dubbo-service</module>
-        <module>dumock-classloader</module>
         <module>dumock-db-mapper</module>
         <module>dumock-db-service</module>
         <module>dumock-proxy</module>
@@ -140,7 +140,16 @@
 
         </dependencies>
     </dependencyManagement>
-
+    <build>
+        <plugins>
+            <plugin>
+                <!--该插件主要用途：构建可执行的JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+        </plugins>
+    </build>
 
 
 
