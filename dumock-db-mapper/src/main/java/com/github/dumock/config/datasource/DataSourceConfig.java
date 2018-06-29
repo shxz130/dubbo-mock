@@ -1,6 +1,7 @@
 package com.github.dumock.config.datasource;
 
 import com.alibaba.druid.pool.DruidDataSource;
+import com.github.dumock.constants.DuMockOutterFileConstants;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +11,7 @@ import org.springframework.context.annotation.PropertySource;
  * Created by jetty on 18/3/8.
  */
 @Configuration
-@PropertySource("file:/wls/wls81/envconfig/dumock/datasource.properties")
+@PropertySource(DuMockOutterFileConstants.DUMOCK_DATASOURCE_FILE_PATH)
 public class DataSourceConfig {
 
     @Value("${datasource.driver}")
