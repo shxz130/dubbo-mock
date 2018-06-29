@@ -35,6 +35,7 @@
         <guava.verison>21.0</guava.verison>
         <sftp.version>0.1.54</sftp.version>
         <lombok.version>1.18.0</lombok.version>
+        <dubbo.version>2.5.5</dubbo.version>
     </properties>
 
     <parent>
@@ -128,7 +129,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-                <scope>provided</scope>
             </dependency>
 
             <dependency>
@@ -137,7 +137,12 @@
                 <version>${sftp.version}</version>
             </dependency>
 
-
+            <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>
