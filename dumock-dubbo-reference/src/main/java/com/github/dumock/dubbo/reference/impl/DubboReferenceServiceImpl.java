@@ -11,6 +11,7 @@ import com.github.jettyrun.common.utils.type.ObjectUtils;
 import com.google.common.base.Splitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.lang.ref.Reference;
@@ -26,6 +27,9 @@ import java.util.Map;
 public class DubboReferenceServiceImpl implements DubboReferenceService {
 
     private static final Logger logger= LoggerFactory.getLogger(DubboReferenceServiceImpl.class);
+
+    @Autowired
+    private DubboReferenceConfig dubboReferenceConfig;
 
     @Override
     public Object reference(String interfaceName, String group, String version,boolean isGeneric) {
@@ -63,8 +67,8 @@ public class DubboReferenceServiceImpl implements DubboReferenceService {
      */
     private ApplicationConfig initApplication(){
         ApplicationConfig applicationConfig=new ApplicationConfig();
-        applicationConfig.setName(DubboReferenceConfig.getApplicationName());
-        applicationConfig.setOwner(DubboReferenceConfig.getApplicationOwner());
+        applicationConfig.setName(dubboReferenceConfig.getApplicationName());
+        applicationConfig.setOwner(dubboReferenceConfig.getApplicationOwner());
         return applicationConfig;
     }
 
@@ -74,7 +78,7 @@ public class DubboReferenceServiceImpl implements DubboReferenceService {
      * @return
      */
     private List<RegistryConfig> initRegistries(){
-        List<String> registryAddresses=Splitter.on(",").trimResults().splitToList(DubboReferenceConfig.getRegistryAddress());
+        List<String> registryAddresses=Splitter.on(",").trimResults().splitToList(dubboReferenceConfig.getRegistryAddress());
         List<RegistryConfig> registryConfigList=new ArrayList<>();
         for(String registryAddress:registryAddresses){
             RegistryConfig registryConfig=new RegistryConfig();

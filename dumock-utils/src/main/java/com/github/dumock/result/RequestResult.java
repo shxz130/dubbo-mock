@@ -20,6 +20,10 @@ public class RequestResult<T> extends AbstractResquestResult{
         return new RequestResult(RespEnum.SUCCESS.getCode(),RespEnum.SUCCESS.getMemo(),null);
     }
 
+    public static RequestResult fail(){
+        return new RequestResult(RespEnum.ERROR.getCode(),RespEnum.ERROR.getMemo(),null);
+    }
+
     public RequestResult(String code, String message, T data) {
         super(code, message);
         this.data = data;

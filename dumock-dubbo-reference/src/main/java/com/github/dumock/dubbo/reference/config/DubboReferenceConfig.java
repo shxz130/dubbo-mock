@@ -19,15 +19,16 @@ public class DubboReferenceConfig {
 
     @Value("${dubbo.application.name}")
     @Getter
-    private static String applicationName;
+    private  String applicationName;
 
     @Value("${dubbo.application.owner}")
     @Getter
-    private static String applicationOwner;
+    private  String applicationOwner;
 
 
     @Value("${dubbo.reference.registry.address}")
     @Getter
-    private static String registryAddress;
+    private  String registryAddress;
+
 
 }

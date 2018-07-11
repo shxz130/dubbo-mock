@@ -16,6 +16,7 @@ public enum  RespEnum {
     ERROR("100999","系统内部异常"),
     FILE_IS_NOT_JAR("100001","文件非jar包"),
     JAR_IS_LAST_TIME("100002","jar包不是最新版本的jar"),
+    LOGIN_STATUS_IS_LOSED("1000003","登录态丢失"),
     ;
     @Getter
     private String code;

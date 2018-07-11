@@ -1,4 +1,4 @@
-package com.github.dumock.http.controller;
+package com.github.dumock.http.controller.rest;
 
 import com.github.dumock.constants.DuMockUrlConstants;
 import com.github.dumock.core.bean.UploadFileRequest;
