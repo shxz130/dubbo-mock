@@ -28,4 +28,8 @@ public class RequestResult<T> extends AbstractResquestResult{
         super(code, message);
         this.data = data;
     }
+
+    public RequestResult(String code, String message) {
+        super(code, message);
+    }
 }

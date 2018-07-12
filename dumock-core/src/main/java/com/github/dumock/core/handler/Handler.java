@@ -10,6 +10,6 @@ import java.util.Map;
  */
 public interface Handler<T extends ActionRequest,F extends ActionResponse> {
 
-    public void handle(final T t,final F f,final Map map);
+    public void handle(final T t,final F f);
 
 }

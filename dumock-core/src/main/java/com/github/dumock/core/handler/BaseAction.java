@@ -2,9 +2,10 @@ package com.github.dumock.core.handler;
 
 import com.github.dumock.core.bean.parent.ActionRequest;
 import com.github.dumock.core.bean.parent.ActionResponse;
-import com.github.dumock.core.exception.DuMockRuntimeException;
 import com.github.dumock.enums.RespEnum;
+import com.github.dumock.exception.DuMockRunTimeException;
 import com.github.jettyrun.common.utils.validator.BusinessValidatorHandler;
+import com.github.jettyrun.common.utils.validator.ParamChecker;
 
 import java.util.Map;
 
@@ -15,7 +16,11 @@ public abstract class BaseAction<T extends ActionRequest,F extends ActionRespons
 
     @Override
     protected void before(T t, F f, Map map) {
-
+        try{
+            ParamChecker.check(t);
+        }catch (Exception e){
+            throw new DuMockRunTimeException(RespEnum.PARAM_IS_EMPTY);
+        }
     }
 
     @Override
@@ -32,10 +37,10 @@ public abstract class BaseAction<T extends ActionRequest,F extends ActionRespons
     protected  void validator(){
         try{
             BusinessValidatorHandler.handle();
-        }catch (DuMockRuntimeException e){
+        }catch (DuMockRunTimeException e){
             throw e;
         }catch (Exception e){
-            throw new DuMockRuntimeException(RespEnum.ERROR,e);
+            throw new DuMockRunTimeException(RespEnum.ERROR,e);
         }
     }
 

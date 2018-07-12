@@ -12,6 +12,7 @@
 		<link rel="stylesheet" href="../assets/css/fonts.googleapis.com.css" />
 		<link rel="stylesheet" href="../assets/css/ace.min.css" />
 		<link rel="stylesheet" href="../assets/css/ace-rtl.min.css" />
+        <script src="../assets/dumock/login/login.js"></script>
 	</head>
 
 	<body class="login-layout">
@@ -46,14 +47,14 @@
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="text" class="form-control" placeholder="Username" />
+															<input type="text"  id="loginName" class="form-control" placeholder="loginName" />
 															<i class="ace-icon fa fa-user"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" class="form-control" placeholder="Password" />
+															<input type="password" id="password" class="form-control" placeholder="Password" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
@@ -66,9 +67,9 @@
 															<span class="lbl"> Remember Me</span>
 														</label>
 
-														<button type="button" class="width-35 pull-right btn btn-sm btn-primary">
+														<button type="button" class="width-35 pull-right btn btn-sm btn-primary" onclick="javascript:login();">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Login</span>
+															<span class="bigger-110">登录</span>
 														</button>
 													</div>
 
@@ -242,54 +243,17 @@
 
 		<!--[if !IE]> -->
 		<script src="assets/js/jquery-2.1.4.min.js"></script>
+        <script src="../assets/js/bootbox.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
 
-		<!-- <![endif]-->
+        <script src="../assets/js/bootstrap-colorpicker.min.js"></script>
 
-		<!--[if IE]>
-<script src="assets/js/jquery-1.11.3.min.js"></script>
-<![endif]-->
-		<!-- <script type="text/javascript">
-			if('ontouchstart' in document.documentElement) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
-		</script> -->
+        <script src="../assets/js/bootstrap-datepicker.min.js"></script>
+        <script src="../assets/js/bootstrap-editable.min.js"></script>
+        <script src="../assets/js/bootstrap-multiselect.min.js"></script>
+        <script src="../assets/js/bootstrap-tag.min.js"></script>
+        <script src="../assets/js/bootstrap-timepicker.min.js"></script>
+        <script src="../assets/js/bootstrap-wysiwyg.min.js"></script>
 
-		<!-- inline scripts related to this page -->
-	<!-- 	<script type="text/javascript">
-			jQuery(function($) {
-			 $(document).on('click', '.toolbar a[data-target]', function(e) {
-				e.preventDefault();
-				var target = $(this).data('target');
-				$('.widget-box.visible').removeClass('visible');//hide others
-				$(target).addClass('visible');//show target
-			 });
-			});
-			
-			
-			
-			//you don't need this, just used for changing background
-			jQuery(function($) {
-			 $('#btn-login-dark').on('click', function(e) {
-				$('body').attr('class', 'login-layout');
-				$('#id-text2').attr('class', 'white');
-				$('#id-company-text').attr('class', 'blue');
-				
-				e.preventDefault();
-			 });
-			 $('#btn-login-light').on('click', function(e) {
-				$('body').attr('class', 'login-layout light-login');
-				$('#id-text2').attr('class', 'grey');
-				$('#id-company-text').attr('class', 'blue');
-				
-				e.preventDefault();
-			 });
-			 $('#btn-login-blur').on('click', function(e) {
-				$('body').attr('class', 'login-layout blur-login');
-				$('#id-text2').attr('class', 'white');
-				$('#id-company-text').attr('class', 'light-blue');
-				
-				e.preventDefault();
-			 });
-			 
-			});
-		</script> -->
 	</body>
 </html>

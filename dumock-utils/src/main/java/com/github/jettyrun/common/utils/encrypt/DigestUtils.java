@@ -30,7 +30,7 @@ public abstract class DigestUtils {
 	private static final String MD5_ALGORITHM_NAME = "MD5";
 
 
-	public static String md5Digest(String text)throws Exception{
+	public static String md5Digest(String text){
 		char hexDigits[] = {
 				'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
 		};
@@ -53,7 +53,7 @@ public abstract class DigestUtils {
 			}
 			return new String(str);
 		} catch (Exception e) {
-			throw e;
+			throw new RuntimeException(e);
 		}
 	}
 

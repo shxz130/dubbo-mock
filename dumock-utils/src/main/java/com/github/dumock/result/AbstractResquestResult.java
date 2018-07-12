@@ -13,8 +13,9 @@ import java.io.Serializable;
 @Data
 public class AbstractResquestResult implements Serializable{
 
+    @NonNull
     protected String code;
 
-
+    @NonNull
     protected String message;
 }

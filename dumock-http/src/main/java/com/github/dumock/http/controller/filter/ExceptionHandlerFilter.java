@@ -5,6 +5,7 @@ import com.github.dumock.constants.DuMockUrlConstants;
 import com.github.dumock.enums.RespEnum;
 import com.github.dumock.exception.DuMockRunTimeException;
 import com.github.dumock.result.RequestResult;
+import org.jboss.netty.handler.codec.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,11 +44,17 @@ public class ExceptionHandlerFilter implements Filter {
 
     private void dealException(HttpServletRequest servletRequest,HttpServletResponse response,Exception e){
         if((isJSONInterface((HttpServletRequest)servletRequest))){
-            try{
-                response.getWriter().write(JSON.toJSONString(RequestResult.fail()));
-            }catch(Exception e1){
-                logger.error("返回信息写失败",e1);
+            if(e instanceof DuMockRunTimeException){
+                DuMockRunTimeException duMockRunTimeException=(DuMockRunTimeException)e;
+                write(response,new RequestResult<Object>(duMockRunTimeException.getCode(),duMockRunTimeException.getMessage()));
+                return;
             }
+            if(e.getCause()!=null && e.getCause() instanceof DuMockRunTimeException){
+                DuMockRunTimeException duMockRunTimeException=(DuMockRunTimeException)e.getCause();
+                write(response,new RequestResult<Object>(duMockRunTimeException.getCode(),duMockRunTimeException.getMessage()));
+                return;
+            }
+            write(response, RequestResult.fail());
         }else{
             try{
                 response.sendRedirect(servletRequest.getContextPath()+DuMockUrlConstants.ERROR_500);
@@ -75,4 +82,13 @@ public class ExceptionHandlerFilter implements Filter {
     private Boolean isJSONInterface(HttpServletRequest servletRequest){
         return getContextPath(servletRequest).endsWith(".json");
     }
+
+    private void write(HttpServletResponse response,RequestResult requestResult){
+        try{
+            response.getWriter().write(JSON.toJSONString(requestResult));
+        }catch(Exception e1){
+            logger.error("返回信息写失败",e1);
+        }
+    }
 }
+

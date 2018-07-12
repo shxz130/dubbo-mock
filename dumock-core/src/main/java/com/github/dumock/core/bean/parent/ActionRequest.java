@@ -5,4 +5,5 @@ package com.github.dumock.core.bean.parent;
  */
 public class ActionRequest {
 
+
 }

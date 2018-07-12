@@ -24,7 +24,7 @@ public class LoginStatusFilter implements Filter {
 
     private static Logger logger= LoggerFactory.getLogger(LoginStatusFilter.class);
 
-    private static final List<String> LOGIN_WHITE_LIST= Arrays.asList(new String[]{DuMockUrlConstants.LOGIN});
+    private static final List<String> LOGIN_WHITE_LIST= Arrays.asList(new String[]{DuMockUrlConstants.LOGIN,DuMockUrlConstants.LOGIN_JSON});
 
     private static final List<String> NOT_STATIC_RESOURCE_LIST=Arrays.asList(new String[]{"json","jsp"});
 

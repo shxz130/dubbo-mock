@@ -2,7 +2,9 @@ package com.github.dumock.core.handler;
 
 import com.github.dumock.core.bean.parent.ActionRequest;
 import com.github.dumock.core.bean.parent.ActionResponse;
+import com.github.jettyrun.common.utils.type.ObjectUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,7 +13,8 @@ import java.util.Map;
 public abstract class ActionHandler<T extends ActionRequest,F extends ActionResponse> implements Handler<T,F> {
 
     @Override
-    public void handle(final T t,final F f, final Map map) {
+    public void handle(final T t,final F f) {
+        Map<String,Object> map=new HashMap<String,Object>();
         check(t, f, map);
         before(t, f, map);
         doHandle(t, f, map);
