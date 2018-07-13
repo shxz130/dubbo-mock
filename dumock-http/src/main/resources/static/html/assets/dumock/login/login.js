@@ -22,9 +22,8 @@ function login(){
             bootbox.alert("请求出错后台登录出错");
             return;
         },
-        success:function(jsonData){//请求成功之后的操作
+        success:function(data){//请求成功之后的操作
 
-            var data= JSON.parse(jsonData);
             if(data.code=='000000'){
                 window.location.href="/index.jsp";
             }else if(data.code=='100004'){

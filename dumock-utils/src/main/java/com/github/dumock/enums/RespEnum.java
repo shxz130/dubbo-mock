@@ -11,7 +11,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum  RespEnum {
 
-    SUCCESS("100000","成功"),
+    SUCCESS("000000","成功"),
     ERROR("100999","系统内部异常"),
     FILE_IS_NOT_JAR("100001","文件非jar包"),
     JAR_IS_LAST_TIME("100002","jar包不是最新版本的jar"),

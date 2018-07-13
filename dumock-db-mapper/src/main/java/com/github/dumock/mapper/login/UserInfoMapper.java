@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Select;
 @Mapper
 public interface UserInfoMapper {
 
-    @Select("SELECT LOGIN_NAME,USER_NAME,USER_PWD FROM DUMOCK_D_USER_INFO WHERE LOGIN_NAME=#{loginName}")
+    @Select("SELECT LOGIN_NAME as loginName,USER_NAME as userName,USER_PWD as userPwd FROM DUMOCK_D_USER_INFO WHERE LOGIN_NAME=#{loginName}")
     UserDO queryOneByLoginName(String loginName);
 
 
