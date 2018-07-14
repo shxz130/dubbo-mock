@@ -95,11 +95,11 @@ public class ExceptionHandlerFilter implements Filter {
 
     private void write(HttpServletResponse response,RequestResult requestResult){
         try{
-
-            MappingJackson2HttpMessageConverter converter=new MappingJackson2HttpMessageConverter();
-            converter.write(requestResult, requestResult.getClass(),MediaType.APPLICATION_JSON_UTF8,new ServletServerHttpResponse(response));
-
-//            int len1 = JSON.writeJSONString(response.getOutputStream(),fastJsonConfig.getCharset(), requestResult,fastJsonConfig.getSerializeConfig(), (SerializeFilter[])null, fastJsonConfig.getDateFormat(), JSON.DEFAULT_GENERATE_FEATURE,fastJsonConfig.getSerializerFeatures());
+         //此处纪念一下当年json数据格式不对劲吃过的苦头，这块代码就不删了。
+         /*   response.setContentType("application/json;charset=UTF-8");
+            response.getWriter().write(JSON.toJSONString(requestResult));*/
+           MappingJackson2HttpMessageConverter converter=new MappingJackson2HttpMessageConverter();
+           converter.write(requestResult, requestResult.getClass(),MediaType.APPLICATION_JSON_UTF8,new ServletServerHttpResponse(response));
             return;
         }catch(Exception e1){
             logger.error("返回信息写失败",e1);
