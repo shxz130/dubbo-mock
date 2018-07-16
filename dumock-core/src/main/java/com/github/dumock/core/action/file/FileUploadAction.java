@@ -1,4 +1,4 @@
-package com.github.dumock.core.file;
+package com.github.dumock.core.action.file;
 
 import com.github.dumock.core.bean.UploadFileRequest;
 import com.github.dumock.core.bean.parent.ActionResponse;

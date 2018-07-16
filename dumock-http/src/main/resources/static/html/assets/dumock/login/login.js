@@ -27,16 +27,16 @@ function login(){
             if(data.code=='000000'){
                 window.location.href="/index.jsp";
             }else if(data.code=='100004'){
-                alert("用户名不能为空");
+                bootbox.alert("用户名不能为空");
                 return;
             }else if(data.code=='100008'){
-                alert("用户不存在");
+                bootbox.alert("用户不存在");
                 return;
             }else if(data.code=='100009'){
-               alert("密码出错");
+                bootbox.alert("密码出错");
                 return;
             }else{
-                alert("系统出错,请稍后重试！");
+                bootbox.alert("系统出错,请稍后重试！");
             }
         }
     });

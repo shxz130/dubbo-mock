@@ -1,4 +1,4 @@
-package com.github.dumock.http.controller.page;
+package com.github.dumock.http.controller.web.page;
 
 import com.github.dumock.constants.DuMockHtmlFilePathConstants;
 import com.github.dumock.constants.DuMockUrlConstants;

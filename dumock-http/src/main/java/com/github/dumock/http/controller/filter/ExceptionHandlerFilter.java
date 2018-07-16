@@ -19,9 +19,13 @@ import org.springframework.http.server.ServletServerHttpResponse;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by jetty on 18/7/10.
@@ -29,6 +33,8 @@ import java.nio.charset.Charset;
 public class ExceptionHandlerFilter implements Filter {
 
     private static Logger logger= LoggerFactory.getLogger(LoginStatusFilter.class);
+
+
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -52,19 +58,21 @@ public class ExceptionHandlerFilter implements Filter {
     }
 
     private void dealException(HttpServletRequest servletRequest,HttpServletResponse response,Exception e){
+        RequestResult requestResult=new RequestResult();
         if((isJSONInterface((HttpServletRequest)servletRequest))){
             if(e instanceof DuMockRunTimeException){
                 DuMockRunTimeException duMockRunTimeException=(DuMockRunTimeException)e;
-
-                write(response,new RequestResult<Object>(duMockRunTimeException.getCode(),duMockRunTimeException.getMessage()));
-                return;
+                requestResult= new RequestResult<Object>(duMockRunTimeException.getCode(),duMockRunTimeException.getMessage());
             }
             if(e.getCause()!=null && e.getCause() instanceof DuMockRunTimeException){
                 DuMockRunTimeException duMockRunTimeException=(DuMockRunTimeException)e.getCause();
-                write(response,new RequestResult<Object>(duMockRunTimeException.getCode(),duMockRunTimeException.getMessage()));
-                return;
+                requestResult=new RequestResult( duMockRunTimeException.getCode(),duMockRunTimeException.getMessage());
+            }else{
+                requestResult= RequestResult.fail();
             }
-            write(response, RequestResult.fail());
+            LoggerHelper.put(requestResult);
+            write(response, requestResult);
+            return;
         }else{
             try{
                 response.sendRedirect(servletRequest.getContextPath()+DuMockUrlConstants.ERROR_500);
@@ -100,10 +108,13 @@ public class ExceptionHandlerFilter implements Filter {
             response.getWriter().write(JSON.toJSONString(requestResult));*/
            MappingJackson2HttpMessageConverter converter=new MappingJackson2HttpMessageConverter();
            converter.write(requestResult, requestResult.getClass(),MediaType.APPLICATION_JSON_UTF8,new ServletServerHttpResponse(response));
-            return;
         }catch(Exception e1){
             logger.error("返回信息写失败",e1);
         }
     }
+
+
+
+
 }
 

@@ -5,6 +5,7 @@ import com.github.dumock.constants.DuMockUrlConstants;
 import com.github.dumock.enums.RespEnum;
 import com.github.dumock.exception.DuMockRunTimeException;
 import com.github.jettyrun.common.utils.encrypt.CipherAESUtils;
+import com.github.jettyrun.common.utils.threadlocal.WebContext;
 import com.github.jettyrun.common.utils.type.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +24,6 @@ import java.util.List;
 public class LoginStatusFilter implements Filter {
 
     private static Logger logger= LoggerFactory.getLogger(LoginStatusFilter.class);
-
-    private static final List<String> LOGIN_WHITE_LIST= Arrays.asList(new String[]{DuMockUrlConstants.LOGIN,DuMockUrlConstants.LOGIN_JSON});
-
-    private static final List<String> NOT_STATIC_RESOURCE_LIST=Arrays.asList(new String[]{"json","jsp"});
-
-    private static final List<String> COMMON_PAGE_LIST=Arrays.asList(new String[]{DuMockUrlConstants.ERROR_500,DuMockUrlConstants.ERROR_404});
 
 
     @Override
@@ -51,14 +46,14 @@ public class LoginStatusFilter implements Filter {
     }
 
     private boolean isLoginUrl(HttpServletRequest request){
-       return LOGIN_WHITE_LIST.contains(getContextPath(request));
+       return DuMockConstants.LOGIN_WHITE_LIST.contains(getContextPath(request));
     }
 
 
 
     private boolean isStaticResouce(HttpServletRequest request){
         String path=getContextPath(request);
-        return !NOT_STATIC_RESOURCE_LIST.contains(path.substring(path.lastIndexOf(".") + 1));
+        return !DuMockConstants.NOT_STATIC_RESOURCE_LIST.contains(path.substring(path.lastIndexOf(".") + 1));
     }
 
 
@@ -69,7 +64,7 @@ public class LoginStatusFilter implements Filter {
 
 
     private boolean isOnline(HttpServletRequest servletRequest){
-        String accessToken=getAccessToken(servletRequest);
+        String accessToken= WebContext.getAccessToken();
         if(StringUtils.isBlank(accessToken)) {
             return false;
         }
@@ -98,7 +93,7 @@ public class LoginStatusFilter implements Filter {
 
 
     private boolean isCommonResources(HttpServletRequest servletRequest){
-        return COMMON_PAGE_LIST.contains(getContextPath(servletRequest));
+        return DuMockConstants.COMMON_PAGE_LIST.contains(getContextPath(servletRequest));
     }
 
 }

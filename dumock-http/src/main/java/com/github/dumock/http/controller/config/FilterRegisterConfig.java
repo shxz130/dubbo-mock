@@ -1,6 +1,7 @@
 package com.github.dumock.http.controller.config;
 
 import com.github.dumock.http.controller.filter.ExceptionHandlerFilter;
+import com.github.dumock.http.controller.filter.LoggerFilter;
 import com.github.dumock.http.controller.filter.LoginStatusFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,18 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class FilterRegisterConfig {
+
+
+    @Bean
+    public FilterRegistrationBean loggerFilterRegister() {
+        FilterRegistrationBean registration = new FilterRegistrationBean();
+        registration.setFilter(new LoggerFilter());
+        registration.addUrlPatterns("/*");
+        registration.setName("loggerFilter");
+        registration.setOrder(-1);
+        return registration;
+    }
+
 
     @Bean
     public FilterRegistrationBean exceptionFiterRegister() {
@@ -31,6 +44,10 @@ public class FilterRegisterConfig {
         registration.setOrder(1);
         return registration;
     }
+
+
+
+
 
 
 }

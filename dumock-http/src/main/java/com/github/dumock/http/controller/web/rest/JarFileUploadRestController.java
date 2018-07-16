@@ -1,9 +1,9 @@
-package com.github.dumock.http.controller.rest;
+package com.github.dumock.http.controller.web.rest;
 
 import com.github.dumock.constants.DuMockUrlConstants;
 import com.github.dumock.core.bean.UploadFileRequest;
 import com.github.dumock.core.bean.parent.ActionResponse;
-import com.github.dumock.core.file.FileUploadAction;
+import com.github.dumock.core.action.file.FileUploadAction;
 import com.github.dumock.result.RequestResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
-import java.util.HashMap;
 
 /**
  * Created by jetty on 18/6/29.
