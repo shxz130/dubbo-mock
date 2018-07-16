@@ -7,16 +7,14 @@ import lombok.NoArgsConstructor;
 /**
  * Created by jetty on 18/7/16.
  */
-@Data
 @NoArgsConstructor
-public class FacadeDO extends AbstractDO{
+@Data
+public class MethodControllerDO extends AbstractDO{
 
-    private String systemUniqueKey;
-    private String name;
-    private String description;
-    private String version;
-
+    private Long methodId;
+    private String userName;
+    private String isMock;
+    private String isTimeOut;
+    private String timeOutLength;
 
 }
-
-

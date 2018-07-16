@@ -1,6 +1,6 @@
-package com.github.dumock.mapper.bean;
+package com.github.dumock.service.db.bean;
 
-import com.github.dumock.mapper.bean.parent.AbstractDO;
+import com.github.dumock.service.db.bean.parent.AbstractBO;
 import lombok.*;
 
 /**
@@ -8,8 +8,10 @@ import lombok.*;
  */
 @NoArgsConstructor
 @Data
-public class UserDO extends AbstractDO {
+public class UserInfo extends AbstractBO {
+
     private String loginName;
     private String userName;
     private String userPwd;
+
 }

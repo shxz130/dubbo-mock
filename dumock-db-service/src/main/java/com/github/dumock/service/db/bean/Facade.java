@@ -1,6 +1,7 @@
-package com.github.dumock.mapper.bean;
+package com.github.dumock.service.db.bean;
 
 import com.github.dumock.mapper.bean.parent.AbstractDO;
+import com.github.dumock.service.db.bean.parent.AbstractBO;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class FacadeDO extends AbstractDO{
+public class Facade extends AbstractBO {
 
     private String systemUniqueKey;
     private String name;

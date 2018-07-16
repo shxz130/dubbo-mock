@@ -7,16 +7,15 @@ import lombok.NoArgsConstructor;
 /**
  * Created by jetty on 18/7/16.
  */
-@Data
 @NoArgsConstructor
-public class FacadeDO extends AbstractDO{
+@Data
+public class MethodDO extends AbstractDO{
 
-    private String systemUniqueKey;
-    private String name;
+    private Long facadeId;
     private String description;
-    private String version;
-
+    private String paramType;
+    private String returnType;
+    private String paramJsonData;
+    private String returnJsonData;
 
 }
-
-
