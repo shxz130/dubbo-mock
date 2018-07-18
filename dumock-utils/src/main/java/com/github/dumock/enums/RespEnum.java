@@ -22,6 +22,7 @@ public enum  RespEnum {
     BEAN_COPY_ERROR("100007","bean拷贝出错"),
     USER_IS_NOT_EXSITED("100008","用户不存在"),
     USER_PWD_IS_ERROR("100009","用户密码出错"),
+
     ;
     @Getter
     private String code;

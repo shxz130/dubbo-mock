@@ -8,6 +8,7 @@ import com.alibaba.dubbo.rpc.service.GenericService;
 import com.github.dumock.dubbo.reference.DubboReferenceService;
 import com.github.dumock.dubbo.reference.config.DubboReferenceConfig;
 import com.github.jettyrun.common.utils.type.ObjectUtils;
+import com.google.common.base.Preconditions;
 import com.google.common.base.Splitter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +41,6 @@ public class DubboReferenceServiceImpl implements DubboReferenceService {
         Object result=null;
         try{
             result= referenceConfig.get();
-
         }catch (Exception e){
             logger.error("引用服务失败,interface={},group={},version={}",interfaceName,group,version,e);
             if(isGeneric){

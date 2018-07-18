@@ -20,6 +20,7 @@
         <module>dumock-core</module>
         <module>dumock-run</module>
         <module>dumock-http</module>
+        <module>dumock-zookeeper-service</module>
     </modules>
 
 
@@ -38,6 +39,7 @@
         <dubbo.version>2.5.5</dubbo.version>
         <freemaker.version>2.3.23</freemaker.version>
         <mysql.version>6.0.6</mysql.version>
+        <curator.version>2.10.0</curator.version>
     </properties>
 
     <parent>
@@ -158,6 +160,27 @@
                 <version>${spring-boot.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-test</artifactId>
+                <version>${curator.version}</version>
+                <scope>test</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>

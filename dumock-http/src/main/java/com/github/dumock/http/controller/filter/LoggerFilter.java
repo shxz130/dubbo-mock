@@ -31,19 +31,20 @@ public class LoggerFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+       try{
+        WebContext.register((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
         if(isStaticResouce((HttpServletRequest)servletRequest)){
             filterChain.doFilter(servletRequest,servletResponse);
         }else{
-            WebContext.register((HttpServletRequest) servletRequest, (HttpServletResponse) servletResponse);
-            try{
+
                 long startTime=System.currentTimeMillis();
                 recordLog((HttpServletRequest) servletRequest);
                 filterChain.doFilter(servletRequest, servletResponse);
                 recordResultLog((HttpServletRequest)servletRequest,System.currentTimeMillis()-startTime);
-            }finally {
-                WebContext.remove();
             }
-        }
+        }finally {
+           WebContext.remove();
+       }
     }
 
     @Override
