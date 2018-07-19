@@ -39,7 +39,7 @@
 
     <ul class="nav nav-list">
         <li id="dashboard" class="">
-            <a href="index.ftl">
+            <a href="${basePath.getContextPath()}/index.jsp">
                 <i class="menu-icon fa fa-tachometer"></i>
                 <span class="menu-text"> Dashboard </span>
             </a>
