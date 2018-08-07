@@ -20,12 +20,9 @@ public class DubboReferenceConfig {
     @Value("${dubbo.application.name}")
     @Getter
     private  String applicationName;
-
     @Value("${dubbo.application.owner}")
     @Getter
     private  String applicationOwner;
-
-
     @Value("${dubbo.reference.registry.address}")
     @Getter
     private  String registryAddress;

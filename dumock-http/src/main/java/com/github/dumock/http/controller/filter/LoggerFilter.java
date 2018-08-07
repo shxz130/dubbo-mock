@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
-import javax.servlet.annotation.HttpConstraint;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -58,7 +57,7 @@ public class LoggerFilter implements Filter {
     }
 
     private void recordResultLog(HttpServletRequest servletRequest,long times){
-        Object object=LoggerHelper.get();
+        Object object=LoggerHelper.getAndRemove();
         String json=object==null?null:JSON.toJSONString(object);
         logger.info(String.format("请求地址:%s,返回参数:%s,耗时:%sms",getUrlFromServletRequest(servletRequest),json,times));
     }

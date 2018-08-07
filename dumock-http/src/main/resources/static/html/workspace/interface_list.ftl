@@ -192,7 +192,7 @@
 					editurl: "./dummy.php"
 				});
 
-				$(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+				$(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid getAndRemove the correct size
 				
 				
 

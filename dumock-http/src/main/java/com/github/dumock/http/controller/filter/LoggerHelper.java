@@ -16,7 +16,7 @@ public class LoggerHelper {
         }
         objectThreadLocal.set(object);
     }
-    public static Object get(){
+    public static Object getAndRemove(){
         try{
             return objectThreadLocal.get();
         }finally {
