@@ -15,10 +15,16 @@ import lombok.ToString;
 public class CallRecordDO extends AbstractDO {
 
     private String userName;
+
     private String InterfaceName;
+
     private String methodName;
+
     private String isMock;
+
     private String isTimeOut;
+
     private String callStatus;
+
     private Long callResultId;
 }

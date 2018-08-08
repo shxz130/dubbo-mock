@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class SystemDO extends AbstractDO{
+
     private String name;
+
     private String description;
 }

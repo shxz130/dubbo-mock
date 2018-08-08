@@ -12,8 +12,11 @@ import lombok.NoArgsConstructor;
 public class FacadeDO extends AbstractDO{
 
     private String systemUniqueKey;
+
     private String name;
+
     private String description;
+
     private String version;
 
 

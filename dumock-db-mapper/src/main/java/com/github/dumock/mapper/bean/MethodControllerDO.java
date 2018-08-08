@@ -12,9 +12,13 @@ import lombok.NoArgsConstructor;
 public class MethodControllerDO extends AbstractDO{
 
     private Long methodId;
+
     private String userName;
+
     private String isMock;
+
     private String isTimeOut;
+
     private String timeOutLength;
 
 }

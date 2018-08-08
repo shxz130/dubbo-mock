@@ -12,10 +12,15 @@ import lombok.NoArgsConstructor;
 public class MethodDO extends AbstractDO{
 
     private Long facadeId;
+
     private String description;
+
     private String paramType;
+
     private String returnType;
+
     private String paramJsonData;
+
     private String returnJsonData;
 
 }

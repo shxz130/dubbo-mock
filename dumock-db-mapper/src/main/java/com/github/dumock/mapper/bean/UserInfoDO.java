@@ -10,7 +10,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class UserInfoDO extends AbstractDO{
+
     private String loginName;
+
     private String userName;
+
     private String userPwd;
 }

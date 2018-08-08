@@ -12,10 +12,15 @@ import lombok.NoArgsConstructor;
 public class JarFileDO extends AbstractDO{
 
     private String groupId;
+
     private String artifactId;
+
     private String systemUniqueKey;
+
     private String version;
+
     private String jarFileName;
+
     private String jarFilePath;
 
 
